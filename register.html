@@ -29,12 +29,17 @@
         method: "POST",
         body: new FormData(document.getElementById("registerForm"))
       })
-      .then(response => {
-        document.getElementById("message").innerText = "✅ Registration successful!";
-        document.getElementById("registerForm").reset();
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === "success") {
+          document.getElementById("message").innerText = "✅ Registration successful!";
+          document.getElementById("registerForm").reset();
+        } else {
+          document.getElementById("message").innerText = "❌ Error: " + result.message;
+        }
       })
       .catch(error => {
-        document.getElementById("message").innerText = "❌ Error submitting form.";
+        document.getElementById("message").innerText = "❌ Network error.";
       });
     });
   </script>
