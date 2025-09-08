@@ -27,8 +27,13 @@
         .then(res => res.json())
         .then(data => {
           if (data.status === "success") {
-            document.getElementById("msg").innerText = "✅ Registration successful!";
+            document.getElementById("msg").innerText = "✅ Registration successful! Redirecting...";
             e.target.reset();
+
+            // Redirect to invest.html after 2 seconds
+            setTimeout(() => {
+              window.location.href = "invest.html";
+            }, 2000);
           } else {
             document.getElementById("msg").innerText = "❌ Error: " + data.message;
           }
