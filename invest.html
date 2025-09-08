@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invest Now - Sterling Horizon Global Limited</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    h2 {
+      color: #d4af37;
+      margin-bottom: 20px;
+    }
+    .plan {
+      background: #1a1d24;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+    }
+    .plan h3 {
+      margin: 0;
+      color: #ffffff;
+    }
+    .plan p {
+      margin: 10px 0;
+      color: #cccccc;
+    }
+    button {
+      background: #28a745;
+      color: #ffffff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e7e34;
+    }
+    a {
+      display: block;
+      margin-top: 20px;
+      color: #d4af37;
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- ✅ Google Analytics tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BG1M6WVLJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BG1M6WVLJ');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Choose Your Investment Plan</h2>
+
+    <div class="plan">
+      <h3>Starter Plan</h3>
+      <p>Invest $100 - $999</p>
+      <p>Daily Return: 3%</p>
+      <button onclick="trackInvestment('Starter Plan')">Invest Now</button>
+    </div>
+
+    <div class="plan">
+      <h3>Professional Plan</h3>
+      <p>Invest $1,000 - $9,999</p>
+      <p>Daily Return: 5%</p>
+      <button onclick="trackInvestment('Professional Plan')">Invest Now</button>
+    </div>
+
+    <div class="plan">
+      <h3>Elite Plan</h3>
+      <p>Invest $10,000 and above</p>
+      <p>Daily Return: 7%</p>
+      <button onclick="trackInvestment('Elite Plan')">Invest Now</button>
+    </div>
+
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <script>
+    // ✅ Custom tracking function
+    function trackInvestment(planName) {
+      gtag('event', 'investment_click', {
+        event_category: 'engagement',
+        event_label: planName
+      });
+      alert("You selected: " + planName + " 🚀"); // feedback for user
+    }
+  </script>
+</body>
+</html>
