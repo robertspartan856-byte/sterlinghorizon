@@ -25,11 +25,16 @@
         method: "POST",
         body: formData
       })
-      .then(response => {
-        document.getElementById("message").innerText = "✅ Your investment in " + plan + " has been recorded!";
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === "success") {
+          document.getElementById("message").innerText = "✅ Your investment in " + plan + " has been recorded!";
+        } else {
+          document.getElementById("message").innerText = "❌ Error: " + result.message;
+        }
       })
       .catch(error => {
-        document.getElementById("message").innerText = "❌ Error recording investment.";
+        document.getElementById("message").innerText = "❌ Network error.";
       });
     }
   </script>
