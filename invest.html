@@ -2,40 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invest - Sterling Horizon Global Limited</title>
 </head>
 <body>
-  <h2>Choose Your Investment Plan</h2>
+  <h2>Choose an Investment Plan</h2>
 
-  <button onclick="submitPlan('Basic Plan')">Invest in Basic Plan</button>
-  <button onclick="submitPlan('Standard Plan')">Invest in Standard Plan</button>
-  <button onclick="submitPlan('Premium Plan')">Invest in Premium Plan</button>
+  <button onclick="invest('Bronze Plan')">Bronze Plan</button>
+  <button onclick="invest('Silver Plan')">Silver Plan</button>
+  <button onclick="invest('Gold Plan')">Gold Plan</button>
+  <button onclick="invest('Platinum Plan')">Platinum Plan</button>
 
-  <p id="message"></p>
+  <p id="msg"></p>
 
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXKd4khhbzVCZxBLG2a0xGgz2OAQthy_EzhkWlVtE_1zkg9iybWx5ozayoIWRvg_nfkQ/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbygJzTSOBj9jWgcfWePOyPwyFZKi5m2I16kgEvK0s76k0qxTUMon3JJB8jOA3Kvf4WgRg/exec";
 
-    function submitPlan(plan) {
-      let formData = new FormData();
-      formData.append("plan", plan);
+    function invest(plan) {
+      document.getElementById("msg").innerText = "Submitting " + plan + "...";
 
       fetch(SCRIPT_URL, {
         method: "POST",
-        body: formData
+        body: new URLSearchParams({ plan })
       })
-      .then(response => response.json())
-      .then(result => {
-        if (result.status === "success") {
-          document.getElementById("message").innerText = "✅ Your investment in " + plan + " has been recorded!";
-        } else {
-          document.getElementById("message").innerText = "❌ Error: " + result.message;
-        }
-      })
-      .catch(error => {
-        document.getElementById("message").innerText = "❌ Network error.";
-      });
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === "success") {
+            document.getElementById("msg").innerText = "✅ Your investment in " + plan + " has been recorded!";
+          } else {
+            document.getElementById("msg").innerText = "❌ Error: " + data.message;
+          }
+        })
+        .catch(err => {
+          document.getElementById("msg").innerText = "❌ Network error!";
+          console.error(err);
+        });
     }
   </script>
 </body>
