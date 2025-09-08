@@ -2,45 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register - Sterling Horizon Global Limited</title>
 </head>
 <body>
   <h2>Register</h2>
-  <form id="registerForm">
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
-
-    <label for="email">Email Address:</label>
-    <input type="email" id="email" name="email" required><br><br>
-
+  <form id="register-form">
+    <label>Name:</label>
+    <input type="text" name="name" required><br><br>
+    <label>Email:</label>
+    <input type="email" name="email" required><br><br>
     <button type="submit">Register</button>
   </form>
 
-  <p id="message"></p>
+  <p id="msg"></p>
 
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXKd4khhbzVCZxBLG2a0xGgz2OAQthy_EzhkWlVtE_1zkg9iybWx5ozayoIWRvg_nfkQ/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbygJzTSOBj9jWgcfWePOyPwyFZKi5m2I16kgEvK0s76k0qxTUMon3JJB8jOA3Kvf4WgRg/exec";
 
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
+    document.getElementById("register-form").addEventListener("submit", e => {
       e.preventDefault();
+      document.getElementById("msg").innerText = "Submitting...";
 
-      fetch(SCRIPT_URL, {
-        method: "POST",
-        body: new FormData(document.getElementById("registerForm"))
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.status === "success") {
-          document.getElementById("message").innerText = "✅ Registration successful!";
-          document.getElementById("registerForm").reset();
-        } else {
-          document.getElementById("message").innerText = "❌ Error: " + result.message;
-        }
-      })
-      .catch(error => {
-        document.getElementById("message").innerText = "❌ Network error.";
-      });
+      fetch(SCRIPT_URL, { method: "POST", body: new FormData(e.target) })
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === "success") {
+            document.getElementById("msg").innerText = "✅ Registration successful!";
+            e.target.reset();
+          } else {
+            document.getElementById("msg").innerText = "❌ Error: " + data.message;
+          }
+        })
+        .catch(err => {
+          document.getElementById("msg").innerText = "❌ Network error!";
+          console.error(err);
+        });
     });
   </script>
 </body>
