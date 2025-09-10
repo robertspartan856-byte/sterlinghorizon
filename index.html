@@ -4,238 +4,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sterling Horizon Global Limited</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0d0d0d;
-      color: #f5f5f5;
-      text-align: center;
+      background: #111;
+      color: #fff;
     }
-
     header {
-      background: #1a1d24;
-      padding: 20px;
+      background: #000;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    nav {
-      margin-top: 10px;
+    header img {
+      height: 50px;
     }
     nav a {
-      color: #f5f5f5;
-      margin: 0 12px;
+      color: #FFD700;
       text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
     }
     nav a:hover {
-      color: #d4af37;
+      text-decoration: underline;
     }
-
     .hero {
-      background: linear-gradient(135deg, #0d0d0d, #1a1d24);
-      padding: 60px 20px;
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to right, #111, #333);
     }
-    .hero h2 {
-      font-size: 2.8em;
-      margin-bottom: 20px;
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #FFD700;
     }
     .hero p {
-      font-size: 1.2em;
-      max-width: 700px;
-      margin: auto;
+      font-size: 1.2rem;
+      margin: 20px auto;
+      max-width: 600px;
     }
-
-    .section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #d4af37;
-      margin-bottom: 20px;
-    }
-
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .plan {
-      background: #1a1d24;
-      padding: 20px;
-      border-radius: 8px;
-      border: 2px solid transparent;
-      transition: 0.3s;
-    }
-    .plan h3 {
-      margin-top: 0;
-      color: #ffffff;
-    }
-    .plan p {
-      margin: 10px 0;
-      color: #cccccc;
-    }
-    .plan:hover {
-      border-color: #d4af37;
-    }
-
-    .faq {
-      background: #1a1d24;
-      border-radius: 8px;
-      padding: 20px;
-    }
-    .faq strong {
-      color: #d4af37;
-    }
-
-    .contact {
-      background: #1a1d24;
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .contact label {
-      color: #d4af37;
-      font-weight: bold;
-    }
-    .contact input, .contact textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
+    .btn {
+      background: #FFD700;
+      color: #111;
+      padding: 12px 20px;
       border: none;
       border-radius: 5px;
-    }
-    .contact input:focus, .contact textarea:focus {
-      border: 2px solid #d4af37;
-    }
-    button {
-      background: #d4af37;
-      color: #0d0d0d;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
-    }
-    button:hover {
-      background: #f1c550;
-    }
-
-    footer {
-      background: #0b0c10;
-      color: #f5f5f5;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-    footer em {
-      color: #999999;
-    }
-
-    /* ✅ Style for Register + Invest Now section */
-    .cta {
-      margin: 50px 0;
-      padding: 40px 20px;
-      background: #1a1d24;
-      border-radius: 10px;
-    }
-    .cta h2 {
-      margin-bottom: 20px;
-    }
-    .cta a {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: bold;
       text-decoration: none;
-      transition: 0.3s;
+      display: inline-block;
+      margin-top: 20px;
     }
-    .cta a.register {
-      background: #0066ff;
-      color: white;
+    .btn:hover {
+      background: #e6c200;
     }
-    .cta a.register:hover {
-      background: #004ecc;
-    }
-    .cta a.invest {
-      background: #28a745;
-      color: white;
-    }
-    .cta a.invest:hover {
-      background: #1e7e34;
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
     }
   </style>
-
-  <!-- ✅ Google Analytics tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BG1M6WVLJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-2BG1M6WVLJ');
-  </script>
 </head>
-
 <body>
   <header>
-    <img src="logo.png" alt="Sterling Horizon Logo">
-    <h1>Sterling Horizon Global Limited</h1>
+    <!-- Replace logo.png with your real logo -->
+    <img src="logo.png" alt="Sterling Horizon Global Limited Logo">
     <nav>
-      <a href="#about">About</a>
-      <a href="#plans">Plans</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="signup.html">Register</a>
+      <a href="login.html">Login</a>
+      <a href="forgot.html">Forgot Password</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>Empowering the Future of Bitcoin Investment</h2>
-    <p>Join Sterling Horizon Global Limited and grow your wealth with secure, worldwide investment opportunities.</p>
-  </section>
-
-  <!-- ✅ CTA block after hero -->
-  <section class="cta">
-    <h2>Start Your Investment Journey Today</h2>
-    <a href="register.html" 
-       class="register"
-       onclick="gtag('event', 'register_click', { event_category: 'engagement', event_label: 'Register Button' });">
-      Register
-    </a>
-    <a href="invest.html" 
-       class="invest"
-       onclick="gtag('event', 'invest_click', { event_category: 'engagement', event_label: 'Invest Now Button' });">
-      Invest Now
-    </a>
-  </section>
-
-  <!-- Example: About section -->
-  <section id="about" class="section">
-    <h2>About Us</h2>
-    <p>We are a trusted global investment company providing top-tier Bitcoin and cryptocurrency investment opportunities.</p>
-  </section>
-
-  <!-- ✅ CTA block before footer -->
-  <section class="cta">
-    <h2>Don’t Miss Out – Secure Your Future Today</h2>
-    <a href="register.html" 
-       class="register"
-       onclick="gtag('event', 'register_click_bottom', { event_category: 'engagement', event_label: 'Register Button Bottom' });">
-      Register
-    </a>
-    <a href="invest.html" 
-       class="invest"
-       onclick="gtag('event', 'invest_click_bottom', { event_category: 'engagement', event_label: 'Invest Now Button Bottom' });">
-      Invest Now
-    </a>
+    <h1>Welcome to Sterling Horizon Global Limited</h1>
+    <p>Empowering your financial journey with secure and innovative investment solutions. 
+       Create your account today and explore your personal dashboard.</p>
+    <a href="signup.html" class="btn">Get Started</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Sterling Horizon Global Limited. <em>All rights reserved.</em></p>
+    © 2025 Sterling Horizon Global Limited. All rights reserved.
   </footer>
 </body>
 </html>
+
+
 
 
 
