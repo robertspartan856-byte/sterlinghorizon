@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Sterling Horizon</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; margin: 0; padding: 0; }
+    header { background: #FFD700; color: #111; padding: 15px; text-align: center; }
+    .container { padding: 20px; }
+    .card { background: #222; padding: 20px; margin: 20px auto; border-radius: 10px; max-width: 500px; }
+    button { background: #FFD700; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #e6c200; }
+    a { color: #FFD700; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Sterling Horizon</h1>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>User Information</h2>
+      <p><strong>Name:</strong> <span id="userName"></span></p>
+      <p><strong>Email:</strong> <span id="userEmail"></span></p>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(!user){
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("userName").textContent = user.name;
+      document.getElementById("userEmail").textContent = user.email;
+    }
+
+    function logout(){
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
