@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sterling Horizon</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; margin: 0; padding: 0; }
+    .container { max-width: 400px; margin: 80px auto; background: #222; padding: 30px; border-radius: 10px; }
+    h2 { text-align: center; color: #FFD700; }
+    label { display: block; margin: 10px 0 5px; }
+    input { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: none; }
+    button { background: #FFD700; border: none; padding: 12px; width: 100%; font-weight: bold; cursor: pointer; border-radius: 5px; }
+    button:hover { background: #e6c200; }
+    p { text-align: center; }
+    a { color: #FFD700; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label>Email</label>
+      <input type="email" id="email" required>
+      <label>Password</label>
+      <input type="password" id="password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p><a href="forgot.html">Forgot Password?</a></p>
+    <p>Don't have an account? <a href="signup.html">Register</a></p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function(e){
+      e.preventDefault();
+      let data = {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+      };
+      let res = await fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
+        method: "POST",
+        body: JSON.stringify({ action: "login", ...data })
+      });
+      let msg = await res.text();
+      if(msg.includes("success")){
+        alert("Login successful!");
+        window.location.href = "dashboard.html"; // redirect to dashboard
+      } else {
+        alert(msg);
+      }
+    });
+  </script>
+</body>
+</html>
